@@ -1,6 +1,6 @@
 'use strict;';
 
 const app = require('./app');
+const config = require('../config');
 
-const port = 3000;
-app.listen(port);
+app.listen(config.koa.port);

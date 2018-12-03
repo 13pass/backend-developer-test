@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/13pass/backend-developer-test#readme",
   "dependencies": {
+    "dotenv": "^6.1.0",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0"
