@@ -1,0 +1,23 @@
+{
+  "name": "board-radar",
+  "version": "0.0.1",
+  "description": "This is part of a coding challenge to create an API for an application that would help board games players to find opponents",
+  "main": "api/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/13pass/backend-developer-test.git"
+  },
+  "keywords": [
+    "nodeJs",
+    "mongoDB"
+  ],
+  "author": "Vincent HETRU",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/13pass/backend-developer-test/issues"
+  },
+  "homepage": "https://github.com/13pass/backend-developer-test#readme"
+}
