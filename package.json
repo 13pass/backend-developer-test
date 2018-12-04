@@ -4,7 +4,7 @@
   "description": "This is part of a coding challenge to create an API for an application that would help board games players to find opponents",
   "main": "api/server.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --runInBand"
   },
   "repository": {
     "type": "git",
