@@ -28,6 +28,11 @@ describe('google Oauth', () => {
     });
     let callbackUrlWithoutCode = page.url().split('?')[0];
     expect(callbackUrlWithoutCode).toBe(callbackUrl);
+    let jsonBody = await page.evaluate(() => {
+      return JSON.parse(document.querySelector('body').innerText); 
+    }); 
+
+    expect(jsonBody.data.token).toBeDefined();
   }, 60000);
 });
 

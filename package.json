@@ -22,6 +22,8 @@
   "homepage": "https://github.com/13pass/backend-developer-test#readme",
   "jest": {
     "bail": false,
+    "globalSetup": "./scripts/jestGlobalSetup.js",
+    "globalTeardown": "./scripts/jestGlobalTeardown.js",
     "testEnvironment": "node",
     "verbose": true
   },
