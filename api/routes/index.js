@@ -13,5 +13,12 @@ function loadRoutes (app) {
       }
     };
   });
+  router.get('/auth/callback', async ctx => {
+    ctx.body = { 
+      data: {
+        msg: 'Auth callback endpoint called'
+      }
+    };
+  });
   app.use(router.routes());
 }

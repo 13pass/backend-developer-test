@@ -11,10 +11,16 @@ module.exports = {
     port: process.env.DB_PORT
   },
   google: {
-    callbackPath: process.env.GOOGLE_CALLBACK_PATH
+    callbackPath: process.env.GOOGLE_CALLBACK_PATH,
+    clientId: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET
   },
   koa: {
     host: process.env.HOST || '127.0.0.1',
     port: parseInt(process.env.PORT) || 3000
+  },
+  test: {
+    emailAddress: process.env.TEST_EMAIL_ADDRESS,
+    emailPassword: process.env.TEST_EMAIL_PASSWORD
   }
 };
