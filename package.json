@@ -2,7 +2,7 @@
   "name": "board-radar",
   "version": "0.0.1",
   "description": "This is part of a coding challenge to create an API for an application that would help board games players to find opponents",
-  "main": "api/index.js",
+  "main": "api/server.js",
   "scripts": {
     "test": "jest"
   },
