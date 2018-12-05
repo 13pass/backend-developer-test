@@ -17,23 +17,24 @@ beforeAll(async () => {
 });
 
 describe('google Oauth', () => {
-  test('should login and get a Json Web Token', async () => {
+  test('should login via google-auth-library and get the correct user email address from the API', async () => {
     let callbackUrl = `${config.apiRootUrl}${config.google.callbackPath}`;
     let authUrl = await generateAuthUrl(callbackUrl);
     expect(authUrl).toBeDefined();
+
     const page = await browser.newPage();
     await login({
       page, 
-      authUrl
+      url: authUrl
     });
     let callbackUrlWithoutCode = page.url().split('?')[0];
     expect(callbackUrlWithoutCode).toBe(callbackUrl);
     let jsonBody = await page.evaluate(() => {
       return JSON.parse(document.querySelector('body').innerText); 
-    }); 
-
-    expect(jsonBody.data.token).toBeDefined();
+    });
+    expect(jsonBody.data.email).toBe(config.test.emailAddress);
   }, 60000);
+
 });
 
 async function generateAuthUrl (callbackUrl) {
@@ -43,18 +44,18 @@ async function generateAuthUrl (callbackUrl) {
     callbackUrl
   );
   return oAuth2Client.generateAuthUrl({
-    scope: 'profile'
+    scope: ['profile', 'email']
   });
 }
 
 async function login ({
   page, 
-  authUrl
+  url
 }) {
   // ⚠ To be able to login through chrome headless we cannot use 
   // a gmail account which is configured to add a security step
   // such as getting a code by text message.
-  await page.goto(authUrl, {
+  await page.goto(url, {
     waitUntil: 'networkidle2'
   });
   await page.mainFrame().waitForSelector('#identifierId');
